@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEventos.Views.Cadastro"
+             Title="Cadastro">
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="Grid">
+            <Setter Property="RowSpacing" Value="5" />
+            <Setter Property="Padding" Value="10"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout VerticalOptions="Center"
+                         Padding="10">
+        <Label Text="Cadastro de Evento"
+               FontSize="32"
+               HorizontalTextAlignment="Center"
+               Margin="0, 0, 0, 10"/>
+
+        <Border>
+            <VerticalStackLayout Padding="15"
+                                 Spacing="10">
+                <Grid RowDefinitions="Auto"
+                      ColumnDefinitions="*, *">
+                    <Label Grid.Column="0" Text="Nome do Evento"/>
+                    <Entry Grid.Column="1" x:Name="nome_evento"/>
+                </Grid>
+
+                <Border>
+                    <Grid RowDefinitions="Auto, Auto"
+                      ColumnDefinitions="*, *">
+                        <Label Grid.Row="0" Grid.Column="0" Text="Início"/>
+                        <DatePicker Grid.Row="0" Grid.Column="1" x:Name="data_inicio" DateSelected="data_inicio_DateSelected"/>
+                    
+                        <Label Grid.Row="1" Grid.Column="0" Text="Término"/>
+                        <DatePicker Grid.Row="1" Grid.Column="1" x:Name="data_termino"/>
+                    </Grid>
+                </Border>
+
+                <Border>
+                    <Grid RowDefinitions="Auto, Auto, Auto"
+                      ColumnDefinitions="*, *">
+                        <Label Grid.Row="0" Grid.Column="0" Text="Número de participantes"/>
+                        <Entry Grid.Row="0" Grid.Column="2" x:Name="qnt_participantes"/>
+                    
+                        <Label Grid.Row="1" Grid.Column="0" Text="Local"/>
+                        <Entry Grid.Row="1" Grid.Column="1" x:Name="local_evento"/>
+                    
+                        <Label Grid.Row="2" Grid.Column="0" Text="Custo por participante"/>
+                        <Entry Grid.Row="2" Grid.Column="1" x:Name="custo_individual"/>
+                    </Grid>
+                </Border>
+
+                <Button Clicked="Cadastrar_Clicked" Text="Cadastrar"/>
+            </VerticalStackLayout>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>

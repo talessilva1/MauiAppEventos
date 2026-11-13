@@ -11,7 +11,10 @@ namespace MauiAppEventos
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new AppShell());
+            var window = new Window(new AppShell());
+            window.Height = 700;
+            window.Width = 350;
+            return window;
         }
     }
 }

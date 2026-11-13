@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEventos.Views.Resultado"
+             Title="Resultado">
+    
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="Small" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="Grid">
+            <Setter Property="RowSpacing" Value="5" />
+            <Setter Property="Padding" Value="10" />
+        </Style>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout VerticalOptions="Center"
+                         Padding="10">
+        <Label Text="Evento cadastrado!"
+               FontSize="Large"
+               HorizontalTextAlignment="Center"/>
+
+        <Border Margin="0, 10, 0, 0">
+            <VerticalStackLayout Padding="15"
+                                 Spacing="10">
+                <Label FontSize="Medium" Text="{Binding NomeEvento}"
+                       HorizontalTextAlignment="Center"
+                       Margin="0, 0, 0, 10"/>
+
+                <Label Text="{Binding Local, StringFormat='Local: {0}'}"/>
+
+                <Border>
+                    <Grid RowDefinitions="Auto, Auto"
+                      ColumnDefinitions="*, *">
+                        <Label Grid.Row="0" Grid.Column="0" Text="Data de início"/>
+                        <DatePicker Grid.Row="0" Grid.Column="1"
+                                    IsEnabled="False" Date="{Binding Path=DataInicio.Date}"/>
+                        <Label Grid.Row="1" Grid.Column="0" Text="Data de término"/>
+                        <DatePicker Grid.Row="1" Grid.Column="1"
+                                    IsEnabled="False" Date="{Binding Path=DataTermino.Date}"/>
+                    </Grid>
+                </Border>
+
+                <Border>
+                    <VerticalStackLayout Padding="10" Spacing="5">
+                        <Label Text="{Binding Duracao, StringFormat='Duração: {0} dia(s)'}"/>
+                        <Label Text="{Binding QntParticipantes, StringFormat='Participantes: {0}'}"/>
+                        <Label Text="{Binding CustoIndividual, StringFormat='Custo individual: {0:C}'}"/>
+                        <Label Text="{Binding CustoTotal, StringFormat='Custo total: {0:C}'}"/>
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>
